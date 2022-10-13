@@ -27,6 +27,7 @@ https://www.python.org
 
 1. GetLocation.pyファイルをJPEG画像が保存されたImageディレクトリの1つ上のディレクトに保存します。
 2. $ python GetLocation.py　とシェルに入力し実行します。
+3. LocationData.csvが出力されます。
 
 
 
