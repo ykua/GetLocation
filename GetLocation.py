@@ -38,11 +38,13 @@ def get_location_data(file_name):
         # 北緯ではない場合はマイナス値
         if lat_ref != "N":
             latitude = 0 - latitude
+
         longitude = conv_deg(gps["GPSLongitude"])
         lon_ref = gps["GPSLongitudeRef"]
         # 東経ではない場合はマイナス値
         if lon_ref != "E":
             longitude = 0 - longitude
+
         location_data = str(latitude) + ', ' + str(longitude)
 
         return location_data, latitude, longitude
@@ -61,9 +63,9 @@ if __name__ == '__main__':
     files = glob.glob(files_path + '*.jpg')
 
     for file in tqdm(files, desc='Photo files: '):
-        # 写真の位置情報を取得
+        # 写真ファイルの位置情報を取得　 戻り値: File name, Location data, Latitude, Longitude
         location = get_location_data(file)
-        # 配列にファイル名と位置データを追加　File name, Location data, Latitude, Longitude
+        # 配列にファイル名と位置データを追加
         export_data.append([os.path.basename(file), location[0], location[1], location[2]])
 
     # CSVファイル生成
